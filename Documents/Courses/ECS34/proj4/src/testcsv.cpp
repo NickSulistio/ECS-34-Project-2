@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 
 TEST(CSVReader, BasicTest){
-	std::stringstream In("INSERT THE TEST HERE");
+	std::stringstream In("1,2 , 3		,4,5\x0e\x0a");
 	CCSVReader Reader(In);
 	std::vector<std::string> Row;
 

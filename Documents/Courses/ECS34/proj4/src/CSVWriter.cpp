@@ -1,9 +1,12 @@
 #include "CSVWriter.h"
 #include "StringUtils.h"
+#include <sstream>
+#include <istream>
 
-CSSVWriter::CCSVWriter(std::ostream &ou) : Output(ou){
-	
+CCSVWriter::CCSVWriter(std::ostream &ou) : Output(ou) {
+
 }
+
 
 CCSVWriter::~CCSVWriter(){
 
@@ -16,3 +19,4 @@ bool CCSVWriter::WriteRow(const std::vector< std::string > &row){
 	}
 	Output<<StringUtils::Join(",",Temp)<<std::endl;
 	return Output.good();
+}
