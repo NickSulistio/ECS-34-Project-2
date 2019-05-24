@@ -29,9 +29,9 @@ CSV_TEST_OBJ	= $(OBJ_DIR)/testcsv.o
 
 CSV_TEST_NAME = testcsv 
 
-all: $(LIBDIR)/$(LIB_CSVNAME) directories runtest
+all: $(LIBDIR)/$(LIB_CSVNAME) directories runtests
 
-runtest: $(TESTBIN_DIR)/$(CSV_TEST_NAME)
+runtests: $(TESTBIN_DIR)/$(CSV_TEST_NAME)
 	$(TESTBIN_DIR)/$(CSV_TEST_NAME)
 	
 $(STRING_UTILS_OBJ): $(SRC_DIR)/StringUtils.cpp $(INC_DIR)/StringUtils.h
@@ -50,15 +50,15 @@ $(TESTBIN_DIR)/$(CSV_TEST_NAME): $(CSV_READER_OBJ) $(CSV_WRITER_OBJ) $(CSV_TEST_
 	$(CXX) $(CSV_READER_OBJ) $(CSV_WRITER_OBJ) $(CSV_TEST_OBJ) $(STRING_UTILS_OBJ) $(LIBDIR)/$(LIB_CSVNAME) $(CXXFLAGS) $(TESTLDFLAGS) -o $(TESTBIN_DIR)/$(CSV_TEST_NAME)
 
 $(LIBCSVDIR)/Makefile:
-	cd $(LIBCSVDIR); ./configure --prefix= $(CUR_DIR); cd ..
+	cd $(LIBCSVDIR); ./configure --prefix=$(CUR_DIR); cd ..
 				
 $(LIBCSVDIR)/libcsv.la: $(LIBCSVDIR)/Makefile				
 	cd $(LIBCSVDIR); make; cd ..
 
-$(LIBDIR)/$(LIB_CSVNAME): $(LIBCSVDIR)/Makefile
+$(LIBDIR)/$(LIB_CSVNAME): $(LIBCSVDIR)/libcsv.la
 	cd $(LIBCSVDIR); make install; cd ..
 
-directories:  $(BIN_DIR) $(TESTBIN_DIR) $(OBJ_DIR) $(SRC_DIR) $(INC_DIR)
+directories:  $(BIN_DIR) $(TESTBIN_DIR) $(OBJ_DIR) 
 	
 $(BIN_DIR):
 	mkdir $(BINDIR)
