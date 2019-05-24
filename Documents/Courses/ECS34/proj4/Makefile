@@ -41,7 +41,7 @@ $(CSV_READER_OBJ): $(SRC_DIR)/CSVReader.cpp $(INC_DIR)/CSVReader.h
 	$(CXX) $(SRC_DIR)/CSVReader.cpp -c $(CXXFLAGS) -o $(CSV_READER_OBJ)
 
 $(CSV_WRITER_OBJ): $(SRC_DIR)/CSVWriter.cpp $(INC_DIR)/CSVWriter.h
-	$(CXX) $(SRC_DIR)/CSVWriter.cpp -c $(CXXFLAGS) -o $(CSV_WCSVWriter_OBJ)
+	$(CXX) $(SRC_DIR)/CSVWriter.cpp -c $(CXXFLAGS) -o $(CSV_WRITER_OBJ)
 
 $(CSV_TEST_OBJ): $(SRC_DIR)/CSVTest.cpp $(INC_DIR)/CSVTest.h
 	$(CXX) $(SRC_DIR)/CSVTest.cpp -c $(CXXFLAGS) -o $(CSV_TEST_OBJ)

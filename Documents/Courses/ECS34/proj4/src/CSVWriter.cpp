@@ -1,5 +1,5 @@
-#nclude "CSVWriter.h"
-#include "stringutils"
+#include "CSVWriter.h"
+#include "StringUtils.h"
 
 CSSVWriter::CCSVWriter(std::ostream &ou) : Output(ou){
 	
